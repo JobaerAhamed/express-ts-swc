@@ -46,8 +46,8 @@ jobs:
           images: |
             ghcr.io/${{ github.repository }}
           tags: |
-            type=raw,value=latest,enable=${{ github.ref_name == 'main' }}
-            type=sha,prefix=${{ github.ref_name }}-
+            type=raw,value=latest,enable=${{ github.ref_name == 'main' }},priority=100
+            type=sha,prefix=${{ github.ref_name }}-,priority=200
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
