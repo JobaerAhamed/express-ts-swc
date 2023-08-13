@@ -1,8 +1,5 @@
 name: cicd
-on:
-  push:
-    branches:
-      - main
+on: push
 jobs:
   code-quality:
     runs-on: ubuntu-latest
@@ -16,6 +13,7 @@ jobs:
       - name: Run tests
         run: npm run test
   docker-build-and-publish:
+    if: github.ref_name == 'main'
     needs: code-quality
     runs-on: ubuntu-latest
     steps:
