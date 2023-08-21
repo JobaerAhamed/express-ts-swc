@@ -25,9 +25,9 @@ export class Server {
   }
 
   async start() {
-    const { PORT = 8080 } = process.env;
+    const { PORT = 8080, SERVICE_NAME = 'server' } = process.env;
     this.httpServer = this.expressApp.listen(PORT, () => {
-      info(`Server listening on http://localhost:${PORT}`);
+      info(`${SERVICE_NAME} listening on http://localhost:${PORT}`);
     });
   }
 }

@@ -1,0 +1,4 @@
+env:
+  PORT: 8080
+  NODE_ENV: production
+  SERVICE_NAME: express-ts-swc-prod
