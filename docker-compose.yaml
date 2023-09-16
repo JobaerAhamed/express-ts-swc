@@ -1,0 +1,19 @@
+version: '3.9'
+
+networks:
+  local-jobaer:
+    external: true
+
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - local-jobaer
+    ports: 
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - NODE_ENV=development
